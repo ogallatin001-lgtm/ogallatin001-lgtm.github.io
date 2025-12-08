@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Clicker Game</title>
+    <title>Space Defender</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Color Clicker</h1>
-    <p>Click the square when it turns **Green**!</p>
+    <h1>Space Defender</h1>
+    <p>Use LEFT/RIGHT arrows to move. Press SPACE to shoot!</p>
 
-    <div id="game-container">
-        <div id="game-square">Click to Start</div>
-    </div>
+    <canvas id="game-canvas" width="600" height="400"></canvas>
 
     <div id="results">
         <p>Score: <span id="score">0</span></p>
-        <p>Best Time: <span id="best-time">--</span>ms</p>
+        <p>Lives: <span id="lives">3</span></p>
+        <p id="game-status">Press SPACE to Start</p>
     </div>
 
     <script src="script.js"></script>
