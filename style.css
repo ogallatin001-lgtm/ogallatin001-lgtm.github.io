@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    color: #333;
+    padding-top: 20px;
+}
+
+#game-square {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background-color: #e74c3c; /* Start color: Red */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#game-square:hover {
+    opacity: 0.9;
+}
+
+/* Color class added by JavaScript */
+.ready-to-click {
+    background-color: #2ecc71 !important; /* Green */
+}
+
+#results {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
