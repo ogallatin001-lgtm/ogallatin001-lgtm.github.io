@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        /* Inlined CSS for Guess the Number Game */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #282a36; /* Darker background */
+            color: #f8f8f2;
+        }
+
+        .container {
+            background-color: #44475a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: #bd93f9;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input {
+            width: 150px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #50fa7b;
+            color: #282a36;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #8be9fd;
+        }
+
+        #message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Home button styling - path adjusted for nested directory */
+        .home-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            background-color: #6272a4;
+            color: #f8f8f2;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .home-button:hover {
+            background-color: #7d89b1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number!</h1>
+        <p>I'm thinking of a number between 1 and 100.</p>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess">
+        <button onclick="checkGuess()">Guess</button>
+        <p id="message"></p>
+        <p id="attempts">Attempts: 0</p>
+        <button onclick="startGame()" style="display: none;" id="newGameButton">New Game</button>
+    </div>
+    <a href="../../index.html" class="home-button">← Back to Hub</a>
+    
+    <script>
+        // Inlined JavaScript for Guess the Number Game
+        let secretNumber = 0;
+        let attempts = 0;
+
+        const guessInput = document.getElementById('guessInput');
+        const message = document.getElementById('message');
+        const attemptsDisplay = document.getElementById('attempts');
+        const newGameButton = document.getElementById('newGameButton');
+
+        function startGame() {
+            // Generate a new random number between 1 and 100
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            
+            // Reset the display
+            message.textContent = 'Guess a number...';
+            attemptsDisplay.textContent = 'Attempts: 0';
+            guessInput.value = '';
+            guessInput.disabled = false;
+            newGameButton.style.display = 'none';
+        }
+
+        function checkGuess() {
+            const guess = parseInt(guessInput.value);
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                message.textContent = 'Please enter a valid number between 1 and 100.';
+                return;
+            }
+
+            attempts++;
+            attemptsDisplay.textContent = `Attempts: ${attempts}`;
+
+            if (guess === secretNumber) {
+                message.textContent = `🎉 Congratulations! You guessed the number ${secretNumber} in ${attempts} attempts!`;
+                guessInput.disabled = true;
+                newGameButton.style.display = 'block';
+            } else if (guess < secretNumber) {
+                message.textContent = 'Too low! Try again.';
+            } else {
+                message.textContent = 'Too high! Try again.';
+            }
+        }
+
+        // Start the game when the page loads
+        startGame();
+    </script>
+</body>
+</html>
