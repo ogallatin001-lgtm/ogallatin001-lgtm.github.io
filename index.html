@@ -3,21 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Defender</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Arcade Hub</title>
+    <style>
+        /* Inlined CSS for the Home Page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e; /* Dark background */
+            color: #e5e5f7; /* Light text */
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header h1 {
+            color: #ffb86c; /* Header color */
+            margin-bottom: 5px;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .game-card {
+            text-decoration: none;
+            color: #e5e5f7;
+            background-color: #2e2e4f;
+            border: 2px solid #6272a4;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            background-color: #44475a;
+            border-color: #8be9fd; /* Highlight color on hover */
+        }
+
+        .game-card h2 {
+            margin-top: 0;
+            color: #ff79c6; /* Card title color */
+        }
+
+        .template-card {
+            opacity: 0.6; /* Dim the templates */
+        }
+    </style>
 </head>
 <body>
-    <h1>Space Defender</h1>
-    <p>Use LEFT/RIGHT arrows to move. Press SPACE to shoot!</p>
+    <header>
+        <h1>👾 The Arcade Hub 👾</h1>
+        <p>Choose your game!</p>
+    </header>
+    <main class="game-list">
+        <a href="games/reaction-speed/index.html" class="game-card">
+            <h2>⚡ Reaction Speed Test</h2>
+            <p>Click the screen as soon as it turns green!</p>
+        </a>
 
-    <canvas id="game-canvas" width="600" height="400"></canvas>
+        <a href="games/guess-number/index.html" class="game-card">
+            <h2>🔢 Guess the Number</h2>
+            <p>Can you guess the secret number between 1 and 100?</p>
+        </a>
 
-    <div id="results">
-        <p>Score: <span id="score">0</span></p>
-        <p>Lives: <span id="lives">3</span></p>
-        <p id="game-status">Press SPACE to Start</p>
-    </div>
+        <a href="games/game3-template/index.html" class="game-card template-card">
+            <h2>🚀 Game 3: Space Defender (Template)</h2>
+            <p>Start coding your Space Defender game here!</p>
+        </a>
 
-    <script src="script.js"></script>
+        <a href="games/game4-template/index.html" class="game-card template-card">
+            <h2>❓ Game 4: Your Choice (Template)</h2>
+            <p>Create your own unique game!</p>
+        </a>
+    </main>
+    <footer>
+        <p>© 2025 GitHub Pages Arcade</p>
+    </footer>
 </body>
 </html>
