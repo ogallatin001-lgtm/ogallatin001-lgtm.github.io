@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alchemy Shop Tycoon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <header>
+            <h1>Alchemist's Hearth</h1>
+            <div class="stats">
+                <p>Gold: <span id="gold">0</span></p>
+                <p>Herbs: <span id="herbs">0</span></p>
+                <p>Potions: <span id="potions">0</span></p>
+            </div>
+        </header>
+
+        <main class="game-grid">
+            <section class="station" id="garden">
+                <h2>The Garden</h2>
+                <div class="visual herb-icon">🌿</div>
+                <button onclick="harvest()">Harvest Herb</button>
+            </section>
+
+            <section class="station" id="cauldron">
+                <h2>The Cauldron</h2>
+                <div class="visual cauldron-icon">🧪</div>
+                <button onclick="brew()">Brew Potion (Costs 3 Herbs)</button>
+            </section>
+
+            <section class="station" id="shop">
+                <h2>The Counter</h2>
+                <div class="visual gold-icon">💰</div>
+                <button onclick="sell()">Sell Potion (Earns 10 Gold)</button>
+            </section>
+        </main>
+
+        <div id="message-log">Welcome back, Apprentice!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
