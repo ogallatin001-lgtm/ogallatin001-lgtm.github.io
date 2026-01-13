@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alchemy Shop Tycoon</title>
+    <title>Master Alchemist</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="game-wrapper">
+        <aside class="sidebar">
+            <h2>Player Stats</h2>
+            <p>Level: <span id="level">1</span></p>
+            <p>XP: <span id="xp">0</span> / <span id="next-level">50</span></p>
+            <hr>
+            <p>Gold: <span id="gold">0</span></p>
+            <h3>Inventory</h3>
+            <ul id="inventory-list">
+                <li>Lavender: <span id="inv-lavender">0</span></li>
+                <li>Nightshade: <span id="inv-nightshade">0</span></li>
+                <li>Potions: <span id="inv-potions">0</span></li>
+            </ul>
+        </aside>
 
-    <div class="game-container">
-        <header>
-            <h1>Alchemist's Hearth</h1>
-            <div class="stats">
-                <p>Gold: <span id="gold">0</span></p>
-                <p>Herbs: <span id="herbs">0</span></p>
-                <p>Potions: <span id="potions">0</span></p>
-            </div>
-        </header>
-
-        <main class="game-grid">
-            <section class="station" id="garden">
-                <h2>The Garden</h2>
-                <div class="visual herb-icon">🌿</div>
-                <button onclick="harvest()">Harvest Herb</button>
+        <main class="game-area">
+            <section class="module" id="garden">
+                <h3>The Enchanted Garden</h3>
+                <div class="garden-plots">
+                    <button onclick="harvest('lavender')">Harvest Lavender</button>
+                    <button onclick="harvest('nightshade')" id="btn-nightshade" disabled>Harvest Nightshade (Lvl 2)</button>
+                </div>
             </section>
 
-            <section class="station" id="cauldron">
-                <h2>The Cauldron</h2>
-                <div class="visual cauldron-icon">🧪</div>
-                <button onclick="brew()">Brew Potion (Costs 3 Herbs)</button>
+            <section class="module" id="alchemy">
+                <h3>Alchemy Bench</h3>
+                <div class="recipes">
+                    <button onclick="brew('health')">Brew Health Potion (2 Lav)</button>
+                    <button onclick="brew('mana')" id="btn-mana" disabled>Brew Mana Potion (1 Lav, 1 Night)</button>
+                </div>
             </section>
 
-            <section class="station" id="shop">
-                <h2>The Counter</h2>
-                <div class="visual gold-icon">💰</div>
-                <button onclick="sell()">Sell Potion (Earns 10 Gold)</button>
+            <section class="module" id="customers">
+                <h3>Store Front</h3>
+                <div id="customer-container">
+                    <div class="customer-bubble" id="customer-ui">
+                        <p id="customer-request">No customers yet...</p>
+                        <button onclick="serveCustomer()" id="btn-serve" style="display:none;">Serve Potion</button>
+                    </div>
+                </div>
             </section>
         </main>
-
-        <div id="message-log">Welcome back, Apprentice!</div>
     </div>
-
+    <div id="log">Welcome to your new shop!</div>
     <script src="script.js"></script>
 </body>
 </html>
